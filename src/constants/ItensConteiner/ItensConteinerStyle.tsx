@@ -6,7 +6,7 @@ const BodyConteiner = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 100vh;
+  height: 85vh;
   background-color: #f9f9f9;
 `;
 

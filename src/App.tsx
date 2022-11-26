@@ -1,28 +1,24 @@
 import React from "react";
 import ShopBox from "./components/ShopBox/ShopBox";
-import ShopCardBox from "./components/ShopCardBox/ShopCardBox";
 import Body from "./constants/ItensConteiner/ItensConteiner";
 import Footer from "./constants/Footer/Footer";
 import Header from "./constants/Header/Header";
 import GlobalStyle from "./GlobalStyle/GlobalStyle";
-import { configureStore } from "@reduxjs/toolkit";
-import { Provider } from "react-redux";
-
-const store = configureStore({
-  reducer: {},
-});
+import { useGetAllProductsQuery } from "./Redux/Reducers/Products";
 
 const App: React.FC = () => {
+
+  const {data, error, isLoading} = useGetAllProductsQuery(undefined)
+  console.log(isLoading ? 'Está carregando' : data)
+
   return (
     <>
-      <Provider store={store}>
-        <GlobalStyle />
-        <Header />
-        <Body>
-          <ShopBox />
-        </Body>
-        <Footer />
-      </Provider>
+      <GlobalStyle />
+      <Header />
+      <Body>
+        <ShopBox />
+      </Body>
+      <Footer />
     </>
   );
 };
