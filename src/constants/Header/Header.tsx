@@ -1,6 +1,6 @@
 import React from "react";
 import { HeaderBoxStyle, Text } from "./HeaderStyle";
-import Vector from "../../assets/images/Vector.png";
+import { ReactComponent as Cart } from "../../assets/SVG/Cart.svg";
 
 function Header() {
   return (
@@ -10,7 +10,7 @@ function Header() {
         <p>sistemas</p>
       </Text>
       <div>
-        <img src={Vector} />
+        <Cart />
         <p>0</p>
       </div>
     </HeaderBoxStyle>
