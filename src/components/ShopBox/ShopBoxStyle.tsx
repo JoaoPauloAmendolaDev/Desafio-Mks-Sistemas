@@ -10,6 +10,7 @@ const ShopBoxConteiner = styled.div`
   width: 218px;
   height: 285px;
 
+  margin-bottom: 30px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2 8 #000;
@@ -32,7 +33,7 @@ const ShopBoxConteiner = styled.div`
     margin-bottom: 30px;
   }
 
-  > div {
+  > button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,7 +47,7 @@ const ShopBoxConteiner = styled.div`
 
     background-color: #0f52ba;
 
-    p {
+    span {
       font-family: "Montserrat";
       font-weight: 600;
       font-size: 14px;
@@ -81,7 +82,7 @@ const NameAndValue = styled.span`
     justify-content: center;
     align-items: center;
 
-    width: 64px;
+    width: 70px;
     height: 26px;
     margin-right: 12px;
 

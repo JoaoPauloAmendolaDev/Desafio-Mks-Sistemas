@@ -1,23 +1,24 @@
-import React from "react";
-import ShopBox from "./components/ShopBox/ShopBox";
-import Body from "./constants/ItensConteiner/ItensConteiner";
-import Footer from "./constants/Footer/Footer";
-import Header from "./constants/Header/Header";
+import React, { useEffect } from "react";
 import GlobalStyle from "./GlobalStyle/GlobalStyle";
-import { useGetAllProductsQuery } from "./Redux/Reducers/Products";
+import { useGetAllProductsQuery } from "./redux/reducers/products";
+import { useAppSelector } from "./redux/hooks/hooks";
+import Header from "./components/Header/Header";
+import ShopBox from "./components/ShopBox/ShopBoxCard";
+import Footer from "./components/Footer/Footer";
+import ShopBoxConteiner from "./components/ShopBoxConteiner/ShopBoxConteiner";
 
 const App: React.FC = () => {
+  const cart = useAppSelector((state) => state.cart.value.cartItems);
 
-  const {data, error, isLoading} = useGetAllProductsQuery(undefined)
-  console.log(isLoading ? 'Está carregando' : data)
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
 
   return (
     <>
       <GlobalStyle />
       <Header />
-      <Body>
-        <ShopBox />
-      </Body>
+      <ShopBoxConteiner />
       <Footer />
     </>
   );
