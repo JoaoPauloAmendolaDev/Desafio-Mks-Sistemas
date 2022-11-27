@@ -44,6 +44,7 @@ const ShopBoxConteiner = styled.div`
 
     width: 100%;
     height: 32px;
+    border-radius: 8px;
 
     background-color: #0f52ba;
 
@@ -82,7 +83,7 @@ const NameAndValue = styled.span`
     justify-content: center;
     align-items: center;
 
-    width: 70px;
+    width: fit-content;
     height: 26px;
     margin-right: 12px;
 

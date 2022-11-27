@@ -1,23 +1,56 @@
-import React from "react";
+import { useAppDispatch } from "../../redux/hooks/hooks";
 import {
   ShopCardConteiner,
   ExcludeButton,
   AddOrRemoveButton,
 } from "./ShopCardBoxStyle";
-import AppleWatchMini from "../../assets/Images/appleWatchMini.png";
+import {
+  removeFromCart,
+  addProduct,
+  removeTotalItemFromCart,
+} from "../../redux/reducers/cartSlice";
 
-function ShopCardBox() {
+type InterfaceProductCard = {
+  product: {
+    id: number;
+    name: string;
+    brand: string;
+    description: string;
+    photo: string;
+    price: number;
+    quantity: number;
+  };
+};
+
+function ShopCardBox({ product }: InterfaceProductCard) {
+  const { id, name, brand, description, photo, price, quantity } = product;
+  const dispatch = useAppDispatch();
+
+  function removeItem() {
+    dispatch(removeTotalItemFromCart(product));
+  }
+
+  function remove() {
+    dispatch(removeFromCart(product));
+  }
+
+  function add() {
+    dispatch(addProduct(product));
+  }
+
   return (
     <ShopCardConteiner>
-      <ExcludeButton>
+      <ExcludeButton onClick={removeItem}>
         <p>X</p>
       </ExcludeButton>
-      <img src={AppleWatchMini} />
-      <p>Apple Watch Series 4 GPS</p>
+      <img src={photo} />
+      <p>{name}</p>
       <AddOrRemoveButton>
-        <div>-</div> <div>0</div> <div>+</div>
+        <button onClick={remove}>-</button>
+        <div>{quantity}</div>
+        <button onClick={add}>+</button>
       </AddOrRemoveButton>
-      <span>R$399</span>
+      <span>R${price}</span>
     </ShopCardConteiner>
   );
 }

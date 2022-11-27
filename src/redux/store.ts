@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { productsApi } from "./reducers/products"
 import cartReducer from "./reducers/cartSlice"
+import isOpenReducer from "./reducers/isOpenLateralBox"
 
 
 const store = configureStore({
     reducer: {
         [productsApi.reducerPath]: productsApi.reducer,
+        isOpenSlice: isOpenReducer,
         cart: cartReducer
     },
     middleware: (getDefaultMiddleware) => 

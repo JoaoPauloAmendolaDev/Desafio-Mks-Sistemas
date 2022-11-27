@@ -46,7 +46,7 @@ const cartSlice = createSlice({
             }
             state.value.cartItems =  [...state.value.cartItems, {...action.payload, quantity: 1}]
         },
-        removeFromCart: (state, action) => {
+        removeFromCart: (state, action: PayloadAction<ProductType>) => {
             const existingCartItem = state.value.cartItems.find((cartItem: ProductType) => {
                 return cartItem.id === action.payload.id
             })
@@ -65,9 +65,12 @@ const cartSlice = createSlice({
                     cartItem
             )
         },
+        removeTotalItemFromCart: (state, action: PayloadAction<ProductType>) => {
+            state.value.cartItems = state.value.cartItems.filter(item => item.id !== action.payload.id)
+        }
     },
 })
 
-export const { addProduct, removeFromCart } = cartSlice.actions
+export const { addProduct, removeFromCart, removeTotalItemFromCart } = cartSlice.actions
 export {cartSlice}
 export default cartSlice.reducer

@@ -13,6 +13,9 @@ const ShopCardConteiner = styled.div`
   border-radius: 8px;
   box-shadow: -2 2 10 0 #000 5%;
 
+  margin-top: 20px;
+
+  
   img {
     width: 46px;
     height: 57px;
@@ -21,11 +24,11 @@ const ShopCardConteiner = styled.div`
   }
 
   > p {
-    font-style: "Montserrat";
+    font-style: "Montserrat" !important;
     font-weight: 400;
     font-size: 13px;
     line-height: 17px;
-    color: #2C2C2C;
+    color: #2c2c2c;
 
     width: 113px;
     height: 33px;
@@ -33,7 +36,7 @@ const ShopCardConteiner = styled.div`
     margin-right: 9px;
   }
 
-  span{
+  span {
     font-style: "Montserrat";
     font-weight: 700;
     font-size: 14px;
@@ -54,9 +57,25 @@ const AddOrRemoveButton = styled.div`
   border-style: solid;
   border-width: 1px;
   border-color: #bfbfbf60;
+  border-radius: 4px;
 
-  div{
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+width: 30px;
+
     margin: auto auto;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-style: solid;
+    border-color: #BFBFBF60;
+  }
+
+  button {
+    border-width: 0px;
+    background-color: #fff;
   }
 `;
 
